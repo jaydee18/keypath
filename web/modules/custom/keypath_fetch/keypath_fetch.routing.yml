@@ -1,0 +1,7 @@
+keypath_fetch.get:
+  path: '/keypath-fetch'
+  defaults:
+    _title: 'Fetch degrees'
+    _controller: '\Drupal\keypath_fetch\Controller\KeypathFetchController::build'
+  requirements:
+    _permission: 'access content'

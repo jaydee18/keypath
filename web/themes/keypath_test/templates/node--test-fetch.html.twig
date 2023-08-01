@@ -1,0 +1,46 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+{{ attach_library('keypath_test/card') }}
+{% if content.json_data %}
+  {% for item in content.json_data %}
+    <article{{ attributes.addClass(classes) }}>
+      <div{{ content_attributes.addClass('card') }}>
+          <header class="card__header">
+            <h2>{{ item['title'] }}</h2>
+          </header>
+          <div class="card__sections">
+            <div class="card__section card__description">
+             {{ item['field_description']|raw }}
+            </div>
+            <div class="card__section card__details">
+              <ul>
+                <li class="duration">{{ item['field_duration'] }}</li>
+                <li class="cost">{{ item['field_cost'] }}</li>
+                <li class="units">{{ item['field_units'] }}</li>
+              </ul>
+            </div>
+            <div class="card__section card__cta">
+              <img class="uts-logo" src="{{ base_path ~ directory ~ '/images/uts-logo.png' }}" alt="UTS logo">
+            </div>
+          </div>
+          <footer class="card__footer">
+            <a class="btn" href="{{ item['field_link'] }}">Enquire</a>
+          </footer>
+      </div>
+    </article>
+  {% endfor %}
+{% else %}
+  <article{{ attributes.addClass(classes) }}>
+    <div{{ content_attributes.addClass('node__content') }}>
+      <p>There are currently no degrees to display.</p>
+    </div>
+  </article>
+{% endif %}

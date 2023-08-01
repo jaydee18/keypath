@@ -1,0 +1,11 @@
+# Main theme library.
+global:
+  css:
+    base:
+      css/base/elements.css: {}
+    component:
+      css/components/header.css: {}
+card:
+  css:
+    component:
+      css/components/card.css: {}

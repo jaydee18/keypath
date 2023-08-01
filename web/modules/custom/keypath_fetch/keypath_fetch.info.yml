@@ -1,0 +1,5 @@
+name: Keypath Fetch
+type: module
+description: Fetches data for the Keypath test.
+package: Custom
+core_version_requirement: ^9 || ^10

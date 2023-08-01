@@ -1,0 +1,60 @@
+<?php
+
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use \Drupal\Component\Serialization\Json;
+
+/**
+ * @file
+ * Primary module hooks for Keypath Fetch module.
+ */
+
+ /**
+ * Implements hook_theme().
+ */
+function keypath_fetch_theme($existing, $type, $theme, $path) {
+  return [
+    'keypath_fetch_data' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'template' => 'keypath-fetch-data',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_node_view_alter.
+ */
+function keypath_fetch_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+
+  if ($entity->getType() === 'page') {
+
+    $currentNodeId = \Drupal::routeMatch()->getParameter('node');
+    $currentNodeId = $currentNodeId->id();
+
+    if ($currentNodeId == 3) {
+      $site_root = \Drupal::service('url_generator')->generateFromRoute('<front>', [], [
+        'absolute' => TRUE,
+      ]);
+      $endpoint = "$site_root/degrees-rest";
+
+      try {
+        $response = \Drupal::service('http_client')->get($endpoint);
+
+        // Check if the request was successful.
+        if ($response->getStatusCode() === 200) {
+          $data = Json::decode($response->getBody(), true);
+          $build['json_data'] = $data;
+        } else {
+          // Handle non-200 responses.
+          $build['json_data'] = t('No data to diplay.');
+        }
+      } catch (\Exception $e) {
+        // Handle exceptions
+        $build['json_data'] = $e->getMessage();
+      }
+    }
+  }
+
+}

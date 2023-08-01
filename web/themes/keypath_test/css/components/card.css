@@ -1,0 +1,111 @@
+.card {
+  margin: 1rem auto;
+  max-width: 80%;
+  background-color: #ffffff;
+  padding: 1rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  color: #3e80c3;
+  font-size: 1.6rem;
+}
+
+.card__sections {
+  display: flex;
+}
+
+.card__section.card__description {
+  width: 44%;
+  padding-right: 5%;
+  border-right: 2px solid #b4cde8;
+}
+
+.card__section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.card__section.card__description ul li {
+  margin: 0;
+	padding: 5px 0 5px 45px;
+	list-style: none;
+	background-image: url("../../images/tick.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 32px;
+}
+
+.card__section.card__details {
+  width: 21%;
+  padding: 0 3%;
+}
+
+.card__section.card__details ul li {
+  font-weight: bold;
+  margin: 0;
+	padding: 5px 0 5px 45px;
+	list-style: none;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 32px;
+}
+
+.card__section.card__details ul li.duration {
+  background-image: url("../../images/duration.png");
+}
+
+.card__section.card__details ul li.cost {
+  background-image: url("../../images/cost.png");
+}
+
+.card__section.card__details ul li.units {
+  background-image: url("../../images/units.png");
+}
+
+.card__section.card__cta {
+  width: 25%;
+  border-left: 2px solid #b4cde8;
+}
+
+.card__cta {
+  position: relative;
+}
+
+.card__cta .uts-logo {
+  max-width: 80px;
+  position: absolute;
+  right: 5%;
+}
+
+.card__footer {
+  position: relative;
+  min-height: 70px;
+}
+
+.card__footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card__footer .btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #ffce44;
+  color: #000000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.card__footer .btn:hover {
+  background-color: #dbae0c;
+}

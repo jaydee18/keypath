@@ -1,0 +1,33 @@
+header[role="banner"] {
+  background-color: #002451;
+  color: #ffffff;
+  padding: 2rem;
+}
+
+#block-keypath-test-site-branding a {
+  font-size: 2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#block-keypath-test-page-title {
+  margin-top: 4rem;
+}
+
+#block-keypath-test-primary-local-tasks {
+  margin: 2rem auto;
+}
+
+#block-keypath-test-primary-local-tasks ul {
+  list-style-type: none;
+}
+
+#block-keypath-test-primary-local-tasks ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#block-keypath-test-primary-local-tasks ul li a:hover {
+  text-decoration: underline;
+}
